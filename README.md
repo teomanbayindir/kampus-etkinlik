@@ -1,0 +1,1 @@
+https://vercel.com/teomanbayindir/kampus-etkinlik/BphpopmmP2PoebcLRR3YjHFAxGQJ
