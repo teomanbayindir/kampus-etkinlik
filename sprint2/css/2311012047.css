@@ -1,0 +1,174 @@
+/* Teoman Bayındır — 2311012047 */
+:root {
+  --no: 2311012047;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: "Palatino Linotype", serif;
+  --bosluk-m: 1rem;  --kose: 8px;
+
+  /* türetilmiş değerler */
+  --renk-ana-koyu: hsl(var(--ton) 65% 28%);
+  --renk-ana-acik: hsl(var(--ton) 45% 88%);
+  --renk-kart: #fff;
+  --renk-cizgi: hsl(var(--ton) 15% 85%);
+  --renk-yazi: hsl(var(--ton) 25% 15%);
+  --renk-hata: hsl(0 70% 42%);
+  --renk-hata-zemin: hsl(0 80% 97%);
+  --bosluk-s: calc(var(--bosluk-m) / 2);
+  --bosluk-l: calc(var(--bosluk-m) * 1.5);
+  --genislik: 64rem;
+}
+body { font-family: var(--font); }
+
+/* ---------- Genel ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--renk-zemin);
+  color: var(--renk-yazi);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--renk-ana); font-weight: bold; }
+a:hover { color: var(--renk-ana-koyu); }
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 var(--bosluk-s); }
+
+/* ---------- Başlık ve menü (beş sayfada aynı) ---------- */
+header {
+  background: var(--renk-ana);
+  color: #fff;
+  padding: var(--bosluk-m);
+}
+header h1 { font-size: 1.4rem; margin: 0; }
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-s) var(--bosluk-m);
+  margin-top: var(--bosluk-s);
+}
+header nav a {
+  color: #fff;
+  font-weight: normal;
+  text-decoration: none;
+  padding: 0.25rem 0;          /* parmakla basılabilir yükseklik */
+}
+header nav a:hover,
+header nav a[aria-current="page"] { text-decoration: underline; }
+
+main {
+  max-width: var(--genislik);
+  margin: 0 auto;
+  padding: var(--bosluk-m);
+}
+
+footer {
+  text-align: center;
+  padding: var(--bosluk-m);
+  color: hsl(var(--ton) 10% 40%);
+  font-size: 0.9rem;
+}
+footer p { margin: 0; }
+
+/* ---------- Kartlar ---------- */
+.kartlar {
+  display: grid;
+  grid-template-columns: 1fr;          /* telefon: tek sütun */
+  gap: var(--bosluk-m);
+  margin-block: var(--bosluk-m);
+}
+.kartlar article {
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+.kartlar article h3 { font-size: 1.15rem; }
+.kartlar article p { margin: 0 0 var(--bosluk-s); }
+
+/* ---------- Detay sayfası ---------- */
+.detay {
+  display: grid;
+  grid-template-columns: 1fr;          /* telefon: alt alta */
+  gap: var(--bosluk-m);
+}
+.detay figure { margin: 0; }
+.detay figure img { border-radius: var(--kose); width: 100%; }
+.detay figcaption { font-style: italic; margin-top: var(--bosluk-s); }
+
+.detay dl {
+  background: var(--renk-kart);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  margin: 0 0 var(--bosluk-m);
+}
+.detay dt { font-weight: bold; }
+.detay dd { margin: 0 0 var(--bosluk-s); }
+
+/* ---------- Form ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bosluk-s);
+  max-width: 36rem;
+}
+label { font-weight: bold; margin-top: var(--bosluk-s); }
+
+input, select, textarea, button { font: inherit; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem var(--bosluk-s);
+  border: 1px solid var(--renk-cizgi);
+  border-radius: var(--kose);
+  background: var(--renk-kart);
+  color: var(--renk-yazi);
+  min-height: 2.75rem;
+}
+textarea { min-height: 6rem; resize: vertical; }
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--renk-ana);
+  outline-offset: 1px;
+}
+
+/* Hatalı alan kırmızı (kullanıcı dokunduktan / gönderdikten sonra) */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--renk-hata);
+  background: var(--renk-hata-zemin);
+  outline-color: var(--renk-hata);
+}
+
+button {
+  margin-top: var(--bosluk-m);
+  padding: 0.75rem var(--bosluk-l);
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: var(--kose);
+  background: var(--renk-ana);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { background: var(--renk-ana-koyu); }
+
+/* ---------- Geniş ekran ---------- */
+@media (min-width: 600px) {
+  .kartlar { grid-template-columns: repeat(2, 1fr); }
+  .detay { grid-template-columns: 1fr 1fr; }
+  form button { align-self: flex-start; }
+}
+@media (min-width: 900px) {
+  .kartlar { grid-template-columns: repeat(3, 1fr); }
+  .kartlar.iki { grid-template-columns: repeat(2, 1fr); }
+}

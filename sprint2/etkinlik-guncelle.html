@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampüs Etkinlikleri | Etkinlik Güncelle</title>
+    <link rel="stylesheet" href="css/2311012047.css">
+</head>
+<body>
+    <header>
+        <h1>Etkinlik Güncelle</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="etkinlikler.html">Etkinlikler</a>
+            <a href="etkinlik-ekle.html">Ekle</a>
+            <a href="etkinlik-guncelle.html" aria-current="page">Güncelle</a>
+        </nav>
+    </header>
+
+    <main>
+        <form action="#" method="POST">
+            <label for="ad">Etkinlik adı</label>
+            <input type="text" id="ad" name="ad" value="Kariyer Günleri 2026" required>
+
+            <label for="kategori">Kategori</label>
+            <select id="kategori" name="kategori" required>
+                <option value="">Seçiniz...</option>
+                <option value="Seminer" selected>Seminer</option>
+                <option value="Atölye">Atölye</option>
+                <option value="Söyleşi">Söyleşi</option>
+            </select>
+
+            <label for="tarih">Tarih</label>
+            <input type="date" id="tarih" name="tarih" value="2026-10-12" required>
+
+            <label for="saat">Saat</label>
+            <input type="time" id="saat" name="saat" value="14:00" required>
+
+            <label for="yer">Yer</label>
+            <input type="text" id="yer" name="yer" value="A Blok Konferans Salonu" required>
+
+            <label for="aciklama">Açıklama</label>
+            <textarea id="aciklama" name="aciklama" required>Sektörün önde gelen isimleriyle tanışma fırsatı yakalayacağınız kariyer günlerine tüm öğrencilerimiz davetlidir.</textarea>
+
+            <button type="submit">Güncelle</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Teoman Bayındır · 2311012047 · 2026</p>
+    </footer>
+</body>
+</html>
