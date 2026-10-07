@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampüs Etkinlikleri | Etkinlikler</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/2311012047.css">
+    <script type="module" src="js/event-list.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Tüm Etkinlikler</h1>
+        <p>Ekim ayında kampüste düzenlenen etkinlikler.</p>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="etkinlikler.html" aria-current="page">Etkinlikler</a>
+            <a href="etkinlik-ekle.html">Ekle</a>
+        </nav>
+    </header>
+
+    <main>
+        <form id="filtre-formu" class="filtre">
+            <div class="alan">
+                <label for="arama">Etkinlik ara</label>
+                <input type="search" id="arama" name="arama" placeholder="Örn. atölye, kariyer">
+            </div>
+            <div class="alan">
+                <label for="kategori-filtre">Kategori</label>
+                <select id="kategori-filtre" name="kategori">
+                    <option value="">Tümü</option>
+                </select>
+            </div>
+        </form>
+        <p id="sonuc" class="sonuc" aria-live="polite"></p>
+
+        <section id="etkinlik-listesi" class="kartlar"></section>
+    </main>
+
+    <footer>
+        <p>Teoman Bayındır · 2311012047 · 2026</p>
+    </footer>
+</body>
+</html>
