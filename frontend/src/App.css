@@ -44,27 +44,29 @@ h1, h2, h3 { line-height: 1.25; margin: 0 0 var(--bosluk-s); }
 header {
   background: var(--renk-ana);
   color: #fff;
-  padding: var(--bosluk-m);
+  padding: var(--bosluk-m) var(--bosluk-m) 0;   /* alt boşluğu menü verir */
 }
 header h1 { font-size: 1.4rem; margin: 0; }
 header p { margin: 0.25rem 0 0; font-size: 0.95rem; }
 
-header nav {
+/* Menü header'ın hemen altında, aynı renk bantta */
+nav.menu {
   display: flex;
   flex-wrap: wrap;
   gap: var(--bosluk-s) var(--bosluk-m);
-  margin-top: var(--bosluk-s);
+  background: var(--renk-ana);
+  padding: var(--bosluk-s) var(--bosluk-m) var(--bosluk-m);
 }
-header nav a {
+nav.menu a {
   color: #fff;
   font-weight: normal;
   text-decoration: none;
   padding: 0.25rem 0.5rem;     /* parmakla basılabilir yükseklik */
   border-radius: var(--kose);
 }
-header nav a:hover { text-decoration: underline; }
+nav.menu a:hover { text-decoration: underline; }
 /* Aktif sayfa: beyaz kutu */
-header nav a[aria-current="page"] {
+nav.menu a[aria-current="page"] {
   background: #fff;
   color: var(--renk-ana);
   font-weight: bold;
@@ -275,5 +277,5 @@ button:hover { background: var(--renk-ana-koyu); }
 }
 @media (min-width: 900px) {
   .kartlar { grid-template-columns: repeat(3, 1fr); }
-  .kartlar.iki { grid-template-columns: repeat(2, 1fr); }
+  .yaklasan .kartlar { grid-template-columns: repeat(2, 1fr); }
 }
