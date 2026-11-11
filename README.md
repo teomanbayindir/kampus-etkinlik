@@ -8,7 +8,16 @@ Sprint 5'te tek büyük `App.tsx` bileşenlere bölündü: her parça kendi dosy
 
 Sprint 6 (vize) ile uygulama gerçek adreslere kavuştu: React Router ile 10 sayfa, `EventsContext` ile ortak etkinlik listesi, controlled form ve doğrulama, yönetim panelinde ekle / güncelle / sil (silmeden önce onay), giriş, kayıt ve şifremi unuttum sayfaları. Veri tarayıcıda tutulur; sayfa yenilenince başa döner.
 
+Sprint 7'de repoya ikinci bir uygulama eklendi: `backend/` klasöründe Node + Express ile yazılmış, etkinlikleri JSON olarak veren REST API. Frontend bu sprintte değişmedi. API'nin komutları ve REST sözleşmesi [backend/README.md](backend/README.md) dosyasında.
+
+| Klasör | Uygulama | Adres |
+| --- | --- | --- |
+| `frontend/` | React + Vite | http://localhost:5173 |
+| `backend/` | Node + Express (veri bellekte) | http://localhost:3000 |
+
 ## Kurulum
+
+Frontend:
 
 ```bash
 cd frontend
@@ -21,6 +30,14 @@ Yayın için:
 ```bash
 npm run build
 npm run preview
+```
+
+Backend:
+
+```bash
+cd backend
+npm install
+npm run dev      # http://localhost:3000
 ```
 
 ## Route listesi
