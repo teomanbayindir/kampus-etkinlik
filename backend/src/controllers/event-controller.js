@@ -1,20 +1,35 @@
+import mongoose from "mongoose";
+import { Event } from "../models/event-model.js";
 import { events } from "../data/events.js";
 
-// GET /events (?category=Atölye isteğe bağlı)
-export function getEvents(req, res) {
-  const { category } = req.query;
-  const list = category
-    ? events.filter((e) => e.category === category)
-    : events;
-  res.json(list);
+// GET /events (?category=Atölye isteğe bağlı), tarihe göre sıralı
+export async function getEvents(req, res, next) {
+  try {
+    const filter = req.query.category
+      ? { category: req.query.category } : {};
+    const events = await Event.find(filter).sort({ date: 1 });
+    res.json(events);
+  } catch (err) {
+    next(err);
+  }
 }
 
-// GET /events/:id
-export function getEventById(req, res) {
-  const event = events.find((e) => e.id === req.params.id);
-  if (!event) return res.status(404)
-    .json({ error: { message: "Event not found" } });
-  res.json(event);
+// GET /events/:id: geçersiz biçimli id de 404 (500 değil)
+export async function getEventById(req, res, next) {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(404)
+        .json({ error: { message: "Event not found" } });
+    }
+    const event = await Event.findById(req.params.id);
+    if (!event) {
+      return res.status(404)
+        .json({ error: { message: "Event not found" } });
+    }
+    res.json(event);
+  } catch (err) {
+    next(err);
+  }
 }
 
 // POST /events: title, category, date zorunlu
