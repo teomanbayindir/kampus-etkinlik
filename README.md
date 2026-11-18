@@ -10,10 +10,12 @@ Sprint 6 (vize) ile uygulama gerçek adreslere kavuştu: React Router ile 10 say
 
 Sprint 7'de repoya ikinci bir uygulama eklendi: `backend/` klasöründe Node + Express ile yazılmış, etkinlikleri JSON olarak veren REST API. Frontend bu sprintte değişmedi. API'nin komutları ve REST sözleşmesi [backend/README.md](backend/README.md) dosyasında.
 
+Sprint 8'de API'nin verisi bellekteki diziden MongoDB'ye (Atlas) taşındı: Mongoose şeması ve modeli, `npm run seed` ile örnek veri, sunucu yeniden başlayınca da duran kayıtlar. Adresler ve status kodları aynı kaldı; frontend bu sprintte de değişmedi.
+
 | Klasör | Uygulama | Adres |
 | --- | --- | --- |
 | `frontend/` | React + Vite | http://localhost:5173 |
-| `backend/` | Node + Express (veri bellekte) | http://localhost:3000 |
+| `backend/` | Node + Express + MongoDB (Mongoose) | http://localhost:3000 |
 
 ## Kurulum
 
@@ -32,11 +34,12 @@ npm run build
 npm run preview
 ```
 
-Backend:
+Backend (önce `.env.example`'ı `.env` olarak kopyalayıp `MONGODB_URI`'yi doldur):
 
 ```bash
 cd backend
 npm install
+npm run seed     # 6 örnek etkinlik
 npm run dev      # http://localhost:3000
 ```
 
